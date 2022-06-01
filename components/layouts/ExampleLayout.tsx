@@ -1,4 +1,4 @@
-import { Layout } from "../../lib/services/types/layouts";
+import { Layout } from "../../lib/types/layouts";
 import { ExampleFooter } from "../examples/ExampleFooter";
 import { ExampleNavbar } from "../examples/ExampleNavbar";
 
@@ -6,7 +6,7 @@ export const ExampleLayoutComponent: React.FC = ({ children }) => (
   <div className="min-h-screen">
     <ExampleNavbar className="sticky top-0" />
 
-    <main className="container">{children}</main>
+    <main>{children}</main>
 
     <ExampleFooter className="sticky top-full" />
   </div>

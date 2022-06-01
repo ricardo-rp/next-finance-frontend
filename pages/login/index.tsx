@@ -1,9 +1,8 @@
 import { ExampleLayout } from "../../components/layouts/ExampleLayout";
 import { LoginView } from "../../components/views/LoginView";
-import { NextPageWithLayout } from "../../lib/services/types/layouts";
+import { NextPageWithLayout } from "../../lib/types/layouts";
 
 const Login: NextPageWithLayout = () => {
-  //<UseForbidAuthed></UseForbidAuthed>
   return <LoginView />;
 };
 

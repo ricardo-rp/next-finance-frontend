@@ -1,4 +1,4 @@
-import { Layout } from "../../lib/services/types/layouts";
+import { Layout } from "../../lib/types/layouts";
 import { ExampleLayoutComponent } from "./ExampleLayout";
 
 export const ExampleNestedLayout: Layout = (page) => {

@@ -1,29 +1,17 @@
 import Router from "next/router";
 import { ExampleLayout } from "../components/layouts/ExampleLayout";
-import { useLogin } from "../lib/services/api/mutations/useLogin";
-import { NextPageWithLayout } from "../lib/services/types/layouts";
+import { NextPageWithLayout } from "../lib/types/layouts";
 
 const Root: NextPageWithLayout = () => {
-  const {
-    mutate: login,
-    data: loginData,
-    isLoading: loginLoading,
-  } = useLogin();
-
   return (
     <>
       <button
-        onClick={() => {
-          login({
-            username: "evo2@gmail.com",
-            password: "alterar123",
-          });
-        }}
+        onClick={() => {}}
         onMouseEnter={() => {
           Router.prefetch("home");
         }}
       >
-        {loginLoading ? "loading" : "Login"}
+        Home
       </button>
     </>
   );

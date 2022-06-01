@@ -1,7 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useRouter } from "next/router";
 import { FormInput } from "../../forms/FormInput";
-import { useLogin } from "../../../lib/services/api/mutations/useLogin";
 import { LoginFormData, loginFormResolver } from "./validation";
 
 export function LoginView() {
@@ -15,14 +13,8 @@ export function LoginView() {
     delayError: 1000,
   });
 
-  const { mutate, isLoading: loginLoading } = useLogin();
-
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
-    try {
-      mutate(data);
-    } catch (error) {
-      console.log(error);
-    }
+    console.log("login!");
   };
 
   return (
@@ -45,11 +37,7 @@ export function LoginView() {
         error={errors.password}
       />
 
-      <button
-        type="submit"
-        disabled={!isValid || loginLoading}
-        className="border-2"
-      >
+      <button type="submit" disabled={!isValid} className="border-2">
         logar
       </button>
     </form>
