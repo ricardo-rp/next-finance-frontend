@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    "*.scss": "postcss"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#370665ff",
+    "titleBar.inactiveBackground": "#37066566",
+    "titleBar.activeForeground": "#fff",
+    "titleBar.inactiveForeground": "#ccc",
+  },
+}
