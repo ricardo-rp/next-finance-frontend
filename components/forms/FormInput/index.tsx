@@ -15,6 +15,7 @@ type FormInputProps<FormData> = {
   placeholder?: string;
   "aria-invalid"?: boolean;
   helperText?: string;
+  readOnly?: boolean;
 };
 
 export function FormInput<FormData>({
