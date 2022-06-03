@@ -16,6 +16,7 @@ type FormInputProps<FormData> = {
   "aria-invalid"?: boolean;
   helperText?: string;
   readOnly?: boolean;
+  disabled?: boolean;
 };
 
 export function FormInput<FormData>({
@@ -43,10 +44,11 @@ export function FormInput<FormData>({
 
       <style jsx>{`
         input {
-          transition: background 0.2s ease-out, border 0.2s ease-out,
+          transition: background 0.2s, border 0.2s ease-out,
             opacity 0.2s ease-out;
           background-position: center right 0.75rem;
           background-size: 0;
+          /** bg-image is needed for aria-invalid icon */
           background-image: var(--icon-chevron-button-inverse);
         }
       `}</style>
