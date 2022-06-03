@@ -1,4 +1,3 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import {
   FieldError,
   Path,
@@ -6,15 +5,17 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
-import styles from "./styles.module.css";
-
 type FormInputProps<FormData> = {
   error?: FieldError;
   label?: string;
   name: Path<FormData>;
   register: UseFormRegister<FormData>;
   options?: RegisterOptions;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+  className?: string;
+  placeholder?: string;
+  "aria-invalid"?: boolean;
+  helperText?: string;
+};
 
 export function FormInput<FormData>({
   error,
@@ -23,15 +24,31 @@ export function FormInput<FormData>({
   register,
   options,
   className,
+  helperText,
   ...rest
 }: FormInputProps<FormData>) {
   return (
-    <div className={`${className} flex flex-col`}>
-      <label htmlFor={name}>{label}</label>
+    <label className={className} htmlFor={name}>
+      {label}
 
-      <input id={name} {...rest} {...register(name, options)} />
+      <input
+        id={name}
+        {...register(name, options)}
+        {...(error?.message && { "aria-invalid": true })}
+        {...rest}
+      />
 
-      <strong className={styles.error}>{error?.message}</strong>
-    </div>
+      <small>{error?.message ?? helperText}</small>
+
+      <style jsx>{`
+        input {
+          transition: background 0.2s ease-out, border 0.2s ease-out,
+            opacity 0.2s ease-out;
+          background-position: center right 0.75rem;
+          background-size: 0;
+          background-image: var(--icon-chevron-button-inverse);
+        }
+      `}</style>
+    </label>
   );
 }

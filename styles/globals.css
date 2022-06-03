@@ -1,5 +1,22 @@
-html,
-body {
-  height: 100%;
+:root {
+  --primary-color: #ff5a5f;
+}
+
+#__next {
+  height: 100vh;
   font-family: 'Inter', sans-serif;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+
+.sticky-bottom {
+  position: sticky;
+  top: 100%;
+}
+
+button {
+  transition: opacity 0.2s ease-out;
 }

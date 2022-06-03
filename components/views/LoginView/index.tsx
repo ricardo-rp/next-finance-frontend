@@ -10,7 +10,6 @@ export function LoginView() {
   } = useForm<LoginFormData>({
     resolver: loginFormResolver,
     mode: "onChange",
-    delayError: 1000,
   });
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
@@ -18,28 +17,33 @@ export function LoginView() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <header>Faça login:</header>
+    <main className="container">
+      <article>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <header>Faça login:</header>
 
-      <FormInput
-        name="username"
-        label="E-mail"
-        placeholder="E-mail"
-        register={register}
-        error={errors.username}
-      />
+          <FormInput
+            name="username"
+            label="E-mail"
+            placeholder="E-mail"
+            register={register}
+            error={errors.username}
+          />
 
-      <FormInput
-        name="password"
-        label="Senha"
-        placeholder="******"
-        register={register}
-        error={errors.password}
-      />
+          <FormInput
+            name="password"
+            label="Senha"
+            placeholder="******"
+            register={register}
+            error={errors.password}
+            helperText="Digite sua senha"
+          />
 
-      <button type="submit" disabled={!isValid} className="border-2">
-        logar
-      </button>
-    </form>
+          <button type="submit" disabled={!isValid}>
+            logar
+          </button>
+        </form>
+      </article>
+    </main>
   );
 }

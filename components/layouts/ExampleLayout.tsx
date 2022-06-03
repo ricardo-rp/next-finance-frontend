@@ -3,12 +3,18 @@ import { ExampleFooter } from "../examples/ExampleFooter";
 import { ExampleNavbar } from "../examples/ExampleNavbar";
 
 export const ExampleLayoutComponent: React.FC = ({ children }) => (
-  <div className="min-h-screen">
-    <ExampleNavbar className="sticky top-0" />
+  <div>
+    <ExampleNavbar className="sticky-top" />
 
-    <main>{children}</main>
+    {children}
 
-    <ExampleFooter className="sticky top-full" />
+    <ExampleFooter className="sticky-bottom" />
+
+    <style jsx>{`
+      div {
+        height: 100%;
+      }
+    `}</style>
   </div>
 );
 
