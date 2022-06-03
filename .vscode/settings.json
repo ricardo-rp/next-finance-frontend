@@ -4,7 +4,6 @@
     "source.fixAll.eslint": true
   },
   "files.associations": {
-    "*.scss": "postcss"
   },
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#370665ff",
